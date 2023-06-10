@@ -49,3 +49,38 @@ def compressedstring(message):
 print(compressedstring('abc'))
 print(compressedstring('abaasass'))
 ################################################################
+
+n = int(input())
+
+if n % 2 != 0:
+    print("Weird")
+elif n % 2 != 0 and n < 2:
+    print("Weird")
+elif n % 2 == 0 and (2 <= n <= 5):
+    print("Not Weird")
+elif n % 2 == 0 and (6 <= n <= 20):
+    print("Weird")
+elif n % 2 == 0 and n > 20:
+    print("Not Weird")
+################################################################
+
+def plus_minus(arr):
+    positive = 0
+    negative = 0
+    zeroes = 0
+
+    for num in arr:
+        if num > 0:
+            positive += 1
+        elif num < 0:
+            negative += 1
+        else:
+            zeroes += 1
+    print(f'{positive / len(arr):6f}\n{negative / len(arr):6f}\n{zeroes / len(arr):6f}\n')
+
+
+print(plus_minus([1, 1, 0, -1, -1]))
+################################
+
+
+
