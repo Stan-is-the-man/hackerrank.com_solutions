@@ -62,6 +62,8 @@ elif n % 2 == 0 and (6 <= n <= 20):
     print("Weird")
 elif n % 2 == 0 and n > 20:
     print("Not Weird")
+
+
 ################################################################
 
 def plus_minus(arr):
@@ -80,7 +82,60 @@ def plus_minus(arr):
 
 
 print(plus_minus([1, 1, 0, -1, -1]))
+
+
 ################################
 
+def staircase(n):
+    result = ''
+    for x in range(n):
+        result += (n - x - 1) * ' '
+        if x == n - 1:
+            result += (x + 1) * '*'
+        else:
+            result += (x + 1) * '*' + '\n'
+    print(result)
+
+
+################################
+
+def birthdayCakeCandles(candles: list):
+    max_candle_size = max(candles)
+    count_of_max_sized_candles = 0
+    for candle in candles:
+        if candle == max_candle_size:
+            count_of_max_sized_candles += 1
+
+    return count_of_max_sized_candles
+
+
+print(birthdayCakeCandles([3, 2, 1, 3]))
+
+
+################################
+
+def time_conversion(s: str):
+    result = ''
+    to_24_dict = {
+        '01': '13', '02': '14', '03': '15', '04': '16',
+        '05': '17', '06': '18', '07': '19', '08': '20',
+        '09': '21', '10': '22', '11': '23',
+        '12': '12'
+    }
+
+    hours = s[0:2]
+    if s[-2] == "P":
+        result += to_24_dict[hours]
+        result += s[2:8]
+        return result
+    if s[-2] == 'A':
+        if hours == '12':
+            hours = '00'
+        res = hours + s[2:8]
+        return res
+
+
+print(time_conversion('12:45:00AM'))
+################################
 
 
