@@ -136,6 +136,28 @@ def time_conversion(s: str):
 
 
 print(time_conversion('12:45:00AM'))
+
+
 ################################
+# student grades
+
+def grading_students(grades):
+    new_grades = []
+
+    for num in grades:
+        if num < 38:
+            new_grades.append(num)
+        else:
+            for x in range(num, num + 5):
+                if x % 5 == 0 and (x - num) < 3:
+                    new_grades.append(x)
+                    break
+                if x % 5 == 0 and (x - num) >= 3:
+                    new_grades.append(num)
+                    break
+
+    return new_grades
 
 
+print(grading_students([73, 67, 38, 33]))
+################################################################

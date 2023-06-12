@@ -1,5 +1,2 @@
-def grading_students(grades):
-    pass
-
-
-
+def countApplesAndOranges(s, t, a, b, apples, oranges):
+    # Write your code here
