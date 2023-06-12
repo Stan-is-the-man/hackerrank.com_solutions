@@ -160,4 +160,23 @@ def grading_students(grades):
 
 
 print(grading_students([73, 67, 38, 33]))
+
+
 ################################################################
+
+def count_apples_and_oranges(s, t, a, b, apples, oranges):
+    apples_on_target = 0
+    oranges_on_target = 0
+
+    for apple in apples:
+        if s <= (a + apple) <= t:
+            apples_on_target += 1
+
+    for oranges in oranges:
+        if s <= (b + oranges) <= t:
+            oranges_on_target += 1
+    return f'{apples_on_target}\n{oranges_on_target}'
+
+
+print(count_apples_and_oranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]))
+################################
