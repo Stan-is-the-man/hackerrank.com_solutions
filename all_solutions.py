@@ -179,4 +179,46 @@ def count_apples_and_oranges(s, t, a, b, apples, oranges):
 
 
 print(count_apples_and_oranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]))
+
+
 ################################
+def kangaroo(x1, v1, x2, v2):
+    if x1 == x2:
+        return 'YES'
+
+    if (x1 < x2 and v1 <= v2) or (x1 > x2 and v1 >= v2):
+        return 'NO'
+
+    # return "YES"
+
+    current_position_x1 = x1
+    current_position_x2 = x2
+
+    while True:
+        current_position_x1 += v1
+        current_position_x2 += v2
+
+        if current_position_x1 == current_position_x2:
+            return 'YES'
+        if current_position_x1 > current_position_x2:
+            return 'NO'
+
+
+print(kangaroo(21, 6, 47, 3))
+
+
+#########################################################
+
+# factor of number
+def get_totalX(a, b):
+    count = 0
+    max_a = max(a)
+    min_b = min(b)
+
+    # Check each integer between the two arrays
+    for num in range(max_a, min_b + 1):
+        if all(num % x == 0 for x in a) and all(y % num == 0 for y in b):
+            count += 1
+
+    return count
+###############

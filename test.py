@@ -1,3 +1,4 @@
-s = '12:01:00AM'
+numbers = [2, 4, 6, 8, 11]
+all_even = all(num % 2 == 0 for num in numbers)
 
-print(s[0:8])
+print(all_even)
