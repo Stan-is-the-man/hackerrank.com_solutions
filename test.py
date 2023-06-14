@@ -1,3 +1,5 @@
-a = [2, 1, 4, 3]
-a.sort()
-print(sum(a[0:3]))
+my_dict = {'a': 10, 'b': 5, 'c': 20, 'd': 20}
+
+max_value = max(my_dict.values())
+
+print(max_value)  # Output: 20

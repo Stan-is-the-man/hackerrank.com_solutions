@@ -298,4 +298,24 @@ def birthday(s, d, m):
 
 
 print(birthday([2, 5, 1, 3, 4, 4, 3, 5, 1, 1, 2, 1, 4, 1, 3, 3, 4, 2, 1], 18, 7))
+
+
 ################################
+def migratory_birds(arr):
+    types = {}
+    for num in arr:
+        if num not in types:
+            types[num] = 0
+        types[num] += 1
+
+    max_frequency = max(types.values())
+    keys_with_max_frequency = []
+    for k, v in types.items():
+        if v == max_frequency:
+            keys_with_max_frequency.append(k)
+    keys_with_max_frequency.sort()
+    return keys_with_max_frequency[0]
+
+
+print(migratory_birds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]))
+################################################################
