@@ -269,3 +269,13 @@ def breaking_records(scores):
 print(breaking_records([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 
 ################################################################
+def mini_max_sum(arr):
+    new_arr = []
+    arr.sort()
+    new_arr.append(sum(arr[0:4]))
+    new_arr.append(sum(arr[1:5]))
+
+    return ' '.join(str(x) for x in new_arr)
+
+print(mini_max_sum([1,3,5,7,9]))
+################################################################
