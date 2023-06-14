@@ -268,6 +268,7 @@ def breaking_records(scores):
 
 print(breaking_records([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 
+
 ################################################################
 def mini_max_sum(arr):
     new_arr = []
@@ -277,5 +278,24 @@ def mini_max_sum(arr):
 
     return ' '.join(str(x) for x in new_arr)
 
-print(mini_max_sum([1,3,5,7,9]))
+
+print(mini_max_sum([1, 3, 5, 7, 9]))
+
+
 ################################################################
+def birthday(s, d, m):
+    if len(s) == 1 and s[0] == d:
+        return 1
+    number_of_ways_bar_can_be_divided = 0
+    for x in range(len(s) - m + 1):
+        current_sum = 0
+        for z in range(x, x + m):
+            current_sum += s[z]
+        if current_sum == d:
+            number_of_ways_bar_can_be_divided += 1
+
+    return number_of_ways_bar_can_be_divided
+
+
+print(birthday([2, 5, 1, 3, 4, 4, 3, 5, 1, 1, 2, 1, 4, 1, 3, 3, 4, 2, 1], 18, 7))
+################################
