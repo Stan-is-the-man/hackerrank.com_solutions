@@ -374,3 +374,48 @@ def day_of_programmer(year):
 
 print(day_of_programmer(2016))
 ################################
+def bon_appetit(bill, k, b):
+    actual_bill = (sum(bill) - bill[k]) // 2
+    if actual_bill < b:
+        return b - actual_bill
+
+    else:
+        return 'Bon Appetit'
+
+
+print(bon_appetit([3, 10, 2, 9], 1, 12))
+################################################################
+import itertools
+
+
+def bigger_is_greater(w):
+    greater_strings = []
+    letters = [str(x) for x in w]
+    words = [''.join(perm) for perm in itertools.permutations(letters)]
+
+    for word in words:
+        if word > w:
+            greater_strings.append(word)
+    greater_strings.sort()
+    if greater_strings:
+        return greater_strings[0]
+    return 'no answer'
+
+
+print(bigger_is_greater('zedawdm'))
+
+################################
+def divisible_sum_pairs(n, k, ar):
+    number_of_pairs = 0
+    ar.sort()
+    for x in range(n - 1):
+        for z in range(1, n - x):
+            a = ar[x] + ar[x + z]
+            if a % k == 0:
+                number_of_pairs += 1
+    return number_of_pairs
+
+
+print(divisible_sum_pairs(6, 5, [1, 2, 3, 4, 5, 6]))
+################################################################
+
