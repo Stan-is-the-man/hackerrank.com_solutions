@@ -1,12 +1,33 @@
-def divisible_sum_pairs(n, k, ar):
-    number_of_pairs = 0
-    ar.sort()
-    for x in range(n - 1):
-        for z in range(1, n - x):
-            a = ar[x] + ar[x + z]
-            if a % k == 0:
-                number_of_pairs += 1
-    return number_of_pairs
+def square_is_magic(square):
+    n = len(square)
+    magic_sum = sum(square[0])
+
+    # Check rows
+    for row in square:
+        if sum(row) != magic_sum:
+            return False
+
+    # Check columns
+    for x in range(n):
+        column_sum = sum(square[z][x] for z in range(n))
+        if column_sum != magic_sum:
+            return False
+
+    # Check main diagonal
+    diagonal_sum = sum(square[i][i] for i in range(n))
+    if diagonal_sum != magic_sum:
+        return False
+
+    # Check secondary diagonal
+    secondary_diagonal_sum = sum(square[i][n - i - 1] for i in range(n))
+    if secondary_diagonal_sum != magic_sum:
+        return False
+
+    return True
 
 
-print(divisible_sum_pairs(6, 5, [1, 2, 3, 4, 5, 6]))
+print(square_is_magic([[8, 3, 4], [1, 5, 9], [6, 7, 2]]))
+
+
+def forming_magic_square(s):
+    pass

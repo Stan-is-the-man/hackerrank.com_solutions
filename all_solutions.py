@@ -373,6 +373,8 @@ def day_of_programmer(year):
 
 
 print(day_of_programmer(2016))
+
+
 ################################
 def bon_appetit(bill, k, b):
     actual_bill = (sum(bill) - bill[k]) // 2
@@ -404,6 +406,7 @@ def bigger_is_greater(w):
 
 print(bigger_is_greater('zedawdm'))
 
+
 ################################
 def divisible_sum_pairs(n, k, ar):
     number_of_pairs = 0
@@ -417,5 +420,68 @@ def divisible_sum_pairs(n, k, ar):
 
 
 print(divisible_sum_pairs(6, 5, [1, 2, 3, 4, 5, 6]))
-################################################################
 
+
+################################################################
+def start_from_first_page(n, p):
+    if p <= n / 2:
+        return True
+
+
+def zero_turns_start_from_first(n, p):
+    if p == n or p == 0:
+        return True
+
+
+def zero_turns_start_from_last(n, p):
+    if (n % 2 != 0) and (n == p or p == n - 1):
+        return True
+
+
+def page_count(n, p):
+    turns = 0
+    if start_from_first_page(n, p):
+        if zero_turns_start_from_first(n, p):
+            return 0
+
+        left = 0
+        right = 1
+        while left != p and right != p:
+            left += 2
+            right += 2
+            turns += 1
+
+    else:
+        if zero_turns_start_from_last(n, p):
+            return 0
+
+        if n % 2 == 0:
+            left = n
+            right = n + 1
+        else:
+            left = n
+            right = n - 1
+        while left != p and right != p:
+            left -= 2
+            right -= 2
+            turns += 1
+
+    return turns
+
+
+print(page_count(7, 4))
+################################################################
+def counting_valleys(steps, path):
+    number_of_valleys_walked_through = 0
+    current_level = 0
+    for step in path:
+        if current_level == 0 and step == 'D':
+            number_of_valleys_walked_through += 1
+        if step == 'U':
+            current_level += 1
+        else:
+            current_level -= 1
+    return number_of_valleys_walked_through
+
+
+print(counting_valleys(8, 'UDDDUDUU'))
