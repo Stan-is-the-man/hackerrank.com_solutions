@@ -470,6 +470,8 @@ def page_count(n, p):
 
 
 print(page_count(7, 4))
+
+
 ################################################################
 def counting_valleys(steps, path):
     number_of_valleys_walked_through = 0
@@ -485,3 +487,21 @@ def counting_valleys(steps, path):
 
 
 print(counting_valleys(8, 'UDDDUDUU'))
+
+
+################################################################
+def get_money_spent(keyboards, drives, b):
+    current_max_sum_in_the_budget = 0
+
+    for x in range(len(keyboards)):
+        for z in range(len(drives)):
+            if b >= keyboards[x] + drives[z] > current_max_sum_in_the_budget:
+                current_max_sum_in_the_budget = keyboards[x] + drives[z]
+    if current_max_sum_in_the_budget != 0:
+        return current_max_sum_in_the_budget
+
+    return -1
+
+
+print(get_money_spent([5], [4], 5))
+################################################################
