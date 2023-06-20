@@ -505,6 +505,8 @@ def get_money_spent(keyboards, drives, b):
 
 print(get_money_spent([5], [4], 5))
 ################################################################
+# всяко с всяко от лист
+# first element with every other elements from a list
 from collections import deque
 
 
@@ -540,3 +542,64 @@ print(longest_subarray([1, 1, 2, 2, 4, 4, 5, 5, 5]))
 print(longest_subarray([1, 2, 2, 3, 1, 2]))
 print(longest_subarray([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ]))
 ############################################
+# def at_least_6_length(password):
+#     if len(password) >= 6:
+#         return True
+
+
+def at_least_1_digit(password):
+    for char in password:
+        if char.isdigit():
+            return True
+
+
+def at_least_1_lowercase(password):
+    for char in password:
+        if char.islower():
+            return True
+
+
+def at_least_1_uppercase(password):
+    for char in password:
+        if char.isupper():
+            return True
+
+
+def has_special_character(password):
+    for char in password:
+        if char in ['!', '@', '#', '$', '%', '^', '(', ')', '-', '+']:
+            return True
+
+
+def minimum_number(n, password):
+    conditions_not_considered = 0
+
+    if not at_least_1_digit(password):
+        conditions_not_considered += 1
+    if not at_least_1_lowercase(password):
+        conditions_not_considered += 1
+    if not at_least_1_uppercase(password):
+        conditions_not_considered += 1
+    if not has_special_character(password):
+        conditions_not_considered += 1
+
+    if n + conditions_not_considered >= 6 or n >= 6:
+        return conditions_not_considered
+
+    return 6 - n
+
+
+print(
+    minimum_number
+    (10,'e+*@f%@e^)!@$ctv!*s&-#$*%j^(&@u$vu)&rr^dhi!)sc(une@#s%x!#%*wz+ew#k@k^%(j@-w^$^(vhjy(#!z@d+)d*+b@#a^#'))
+#################################
+def bigSorting(unsorted):
+    int_list = [int(x) for x in unsorted]
+    int_list.sort()
+    return '\n'.join(str(x) for x in int_list)
+
+
+print(bigSorting(['5', '1', '1232142323535']))
+################################################################
+
+
