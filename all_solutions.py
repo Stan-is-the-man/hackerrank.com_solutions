@@ -505,3 +505,38 @@ def get_money_spent(keyboards, drives, b):
 
 print(get_money_spent([5], [4], 5))
 ################################################################
+from collections import deque
+
+
+def longest_subarray(a):
+    if min(a) == max(a):
+        return len(a)
+    to_deque = deque(a)
+    longest_run = 0
+    for _ in range(len(to_deque)):
+        current_array = list()
+        current_array.append(to_deque[0])
+        for z in range(1, len(to_deque) - 1):
+            if abs(to_deque[0] - to_deque[z]) <= 1:
+                current_array.append(to_deque[z])
+
+        smaller = []
+        bigger = []
+        for y in current_array:
+            if to_deque[0] <= y:
+                smaller.append(y)
+            if to_deque[0] >= y:
+                bigger.append(y)
+        current_longest_run = max(len(smaller), len(bigger))
+        if current_longest_run > longest_run:
+            longest_run = current_longest_run
+        to_deque.append(to_deque.popleft())
+
+    return longest_run
+
+
+print(longest_subarray([4, 6, 5, 3, 3, 1]))
+print(longest_subarray([1, 1, 2, 2, 4, 4, 5, 5, 5]))
+print(longest_subarray([1, 2, 2, 3, 1, 2]))
+print(longest_subarray([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ]))
+############################################
