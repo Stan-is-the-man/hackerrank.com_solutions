@@ -636,5 +636,17 @@ def utopian_tree(n):
 
 
 print(utopian_tree(4))
+########################################################################################
+def angryProfessor(k, a):
+    on_time_students = 0
+    for time in a:
+        if time <= 0:
+            on_time_students += 1
+    if on_time_students < k:
+        return 'YES'
+    return 'NO'
 
+
+print(angryProfessor(2, [0, -1, 2, 1]))
+########################################
 
