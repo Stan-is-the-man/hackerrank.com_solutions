@@ -601,5 +601,40 @@ def bigSorting(unsorted):
 
 print(bigSorting(['5', '1', '1232142323535']))
 ################################################################
+#alphabet dict
+
+import string
+
+alphabet_dict = {letter: index for index, letter in enumerate(string.ascii_lowercase, 0)}
+print(alphabet_dict)
+
+#######################3
+import string
+
+
+def designer_pdf_viewer(h, word):
+    alphabet_dict = {letter: index for index, letter in enumerate(string.ascii_lowercase, 0)}
+    heights_of_the_word = []
+    for char in word:
+        heights_of_the_word.append(h[alphabet_dict[char]])
+    return len(word) * max(heights_of_the_word)
+
+
+print(designer_pdf_viewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], 'abc'))
+########################################################################
+def utopian_tree(n):
+    initial_height = 1
+    if n == 0:
+        return initial_height
+    for x in range(1, n + 1):
+        if x % 2 != 0:
+            initial_height *= 2
+        else:
+            initial_height += 1
+
+    return initial_height
+
+
+print(utopian_tree(4))
 
 

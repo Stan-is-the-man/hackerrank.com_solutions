@@ -1,7 +1,4 @@
-def at_least_1_uppercase(password):
-    for char in password:
-        if 65 <= ord(char) <= 90:
-            return True
+import string
 
-
-print(at_least_1_uppercase('b'))
+alphabet_dict = {letter: index for index, letter in enumerate(string.ascii_lowercase, 0)}
+print(alphabet_dict)
