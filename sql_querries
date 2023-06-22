@@ -71,4 +71,40 @@ AVG(Salary) - AVG(REPLACE(Salary,0, ''))
 FROM EMPLOYEES
 ################################################################
 
+We define an employee's total earnings to be their monthly  worked, and the maximum total earnings to be the maximum
+total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all
+employees as well as the total number of employees who have maximum total earnings. Then print these values as
+space-separated integers.
+
+SELECT (salary * months) AS Earnings, COUNT(*)
+FROM Employee
+GROUP BY Earnings
+ORDER BY Earnings DESC
+LIMIT 1;
+################################################################
+SELECT ROUND(MAX(LAT_N), 4)
+FROM STATION
+WHERE LAT_N < 137.2345;
+################################################################
+
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE LAT_N < 137.2345
+ORDER BY LAT_N DESC
+LIMIT 1;
+################################################################
+SELECT ROUND(LAT_N, 4)
+FROM STATION
+WHERE LAT_N > 38.7780
+ORDER BY LAT_N
+LIMIT 1;
+################################################################
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE LAT_N > 38.7780
+ORDER BY LAT_N
+LIMIT 1;
+################################################################
+
+
 
