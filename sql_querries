@@ -54,5 +54,21 @@ WHERE SALARY > 2000
 AND months < 10
 ORDER BY employee_id;
 ################################################################
+select sum(population)
+from city
+where district = 'California'
+################################################################
+
+select sum(population)
+from city
+where countrycode = 'JPN'
+################################################################
+
+#replace
+SELECT CEIL(
+AVG(Salary) - AVG(REPLACE(Salary,0, ''))
+)
+FROM EMPLOYEES
+################################################################
 
 
