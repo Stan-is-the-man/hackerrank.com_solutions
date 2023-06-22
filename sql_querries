@@ -105,6 +105,61 @@ WHERE LAT_N > 38.7780
 ORDER BY LAT_N
 LIMIT 1;
 ################################################################
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with  sides of equal length.
+Isosceles: It's a triangle with  sides of equal length.
+Scalene: It's a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+
+SELECT CASE
+    WHEN (A=B AND B=C) THEN 'Equilateral'
+    WHEN ((A=B AND A!=C) OR (A!=B AND B=C) OR (A=C AND C!=B)) AND (A+B>C AND A+C>B AND B+C>A) THEN 'Isosceles'
+    WHEN (A!=B AND A!=C AND B!=C) AND (A+B>C AND A+C>B AND B+C>A) THEN 'Scalene'
+    ELSE 'Not A Triangle'
+    END
+FROM triangles;
+################################################################
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its
+ corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+Note: Print NULL when there are no more names corresponding to an occupation.
+
+SELECT
+    MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+    MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+    MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+    MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+FROM (
+    SELECT Occupation,
+    Name,
+    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS row_num
+    FROM OCCUPATIONS
+) t
+GROUP BY row_num
+ORDER BY row_num;
+################################################################
+SELECT SUM(CITY.POPULATION)
+FROM CITY
+INNER JOIN COUNTRY
+ON CITY.CountryCode = COUNTRY.Code
+WHERE CONTINENT = 'Asia'
+################################################################
+
+SELECT CITY.NAME
+FROM CITY
+INNER JOIN COUNTRY
+ON CITY.CountryCode = COUNTRY.Code
+WHERE CONTINENT = 'Africa'
+################################################################
+
+SELECT CONTINENT, FLOOR(AVG(CITY.POPULATION))
+FROM COUNTRY
+INNER JOIN CITY
+ON  CITY.CountryCode = COUNTRY.Code
+GROUP BY CONTINENT
+################################################################
+
 
 
 
