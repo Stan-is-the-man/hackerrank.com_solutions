@@ -650,3 +650,41 @@ def angryProfessor(k, a):
 print(angryProfessor(2, [0, -1, 2, 1]))
 ########################################
 
+def hurdle_race(k, height):
+    needed = max(height) - k
+    if needed > 0:
+        return needed
+    return 0
+
+
+print(hurdle_race(4, [1, 6, 3, 5, 2]))
+########################################
+def flatland_space_stations(n, c):
+    all_max_distances = {0}
+
+    for city_index in range(n):
+        if city_index not in c:
+            current_distances = []
+            for space_station in c:
+                current_distances.append(abs(space_station - city_index))
+            all_max_distances.add(min(current_distances))
+
+    return max(all_max_distances)
+
+
+print(flatland_space_stations(6, [0, 1, 2, 4, 3, 5]))
+################################
+def beautiful_days(i, j, k):
+    happy_days = 0
+
+    for day in range(i, j + 1):
+        d_str = str(day)
+        d_rev_str = d_str[::-1]
+        d_rev = d_rev_str.lstrip('0')
+        if (abs(day - int(d_rev))) % k == 0:
+            happy_days += 1
+
+    return happy_days
+
+
+print(beautiful_days(20, 23, 6))

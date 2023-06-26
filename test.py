@@ -1,4 +1,4 @@
-import string
-
-alphabet_dict = {letter: index for index, letter in enumerate(string.ascii_lowercase, 0)}
-print(alphabet_dict)
+k = 21
+k_rev = str(k)
+m = int(k_rev[::-1])
+print(type(m))
